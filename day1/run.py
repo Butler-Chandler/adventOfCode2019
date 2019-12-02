@@ -1,6 +1,6 @@
 def runProblem1():
     runningTotal = 0
-    with open('adventOfCode2019\\day1\\input.txt') as data:
+    with open('day1\\input.txt') as data:
         for line in data.readlines():
             mass = int(line.rstrip())
             fuel = (mass//3 - 2)
@@ -10,7 +10,7 @@ def runProblem1():
 
 def runProblem2():
     runningTotal = 0
-    with open('adventOfCode2019\\day1\\input.txt') as data:
+    with open('day1\\input.txt') as data:
         for line in data.readlines():
             mass = int(line.rstrip())
             fuel = determineFuel(mass)
