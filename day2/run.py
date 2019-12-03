@@ -1,27 +1,31 @@
 
 
 def runProblem1():
-    commands = parseOpCodes()
+    commands = runProgram()
 
 
-def parseOpCodes():
-    program = {}
-    procIndex = 0
+def runProgram():
     programIndex = 0
-    codes = []
     with open('day2\\input.txt') as stream:
         for line in stream.readlines():
-            codes = (line.rstrip().split(','))
+            codes = list(map(int,(line.rstrip().split(','))))
 
-        for code in codes:
-            if(int(code) == 1):
-                ## add op code
-                print()
-            if(code ==','):
-                ## new index 
-                print()
+        killProc = False
+        while programIndex < len(codes) or killProc:
+            print(codes[programIndex])
+            if codes[programIndex] == 1:
+                indexToUpdate = codes[programIndex+3]
+                codes[indexToUpdate] = codes[codes[programIndex+1]] + codes[codes[programIndex+2]]
+                programIndex += 4
 
-            #program.append(byte)
+            elif codes[programIndex] == 2:
+                indexToUpdate = codes[programIndex+3]
+                codes[indexToUpdate] = codes[codes[programIndex+1]] * codes[codes[programIndex+2]]
+                programIndex += 4
 
-        print(program)
+            elif codes[programIndex] == 99:
+                killProc = True
+                break   
+
+        print(codes)
     return -1
