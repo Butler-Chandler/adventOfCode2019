@@ -1,7 +1,7 @@
 
 
 def runProblem1():
-    commands = runProgram(12,2)
+    runProgram(12,2)
 
 
 def runProblem2():
