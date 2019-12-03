@@ -6,3 +6,4 @@
 from day2 import run as day2
 
 day2.runProblem1()
+day2.runProblem2()
